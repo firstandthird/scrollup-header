@@ -1,14 +1,14 @@
 @media (max-width: 767px) {
-  .fixed-header {
+  .scrollup-header {
     width: 100%;
     z-index: 1000;
   }
 
-  .fixed-header.in-transition {
+  .scrollup-header.in-transition {
     transition: transform .3s cubic-bezier(.35, 0, .25, 1);
   }
 
-  .fixed-header.fixed {
+  .scrollup-header.fixed {
     left: 0;
     position: fixed;
     right: 0;

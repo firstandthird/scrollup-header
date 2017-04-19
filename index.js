@@ -8,7 +8,7 @@ const CLASSES = {
   TRANSITION: 'in-transition'
 };
 
-class FixedHeader extends Domodule {
+class ScrollupHeader extends Domodule {
   postInit() {
     this.parent = this.el.parentElement;
     this.enabled = true;
@@ -44,12 +44,12 @@ class FixedHeader extends Domodule {
 
   calcBounds() {
     this.height = this.el.offsetHeight;
-    this.start = this.el.getBoundingClientRect().top + FixedHeader.getScrollPosition();
+    this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
     this.end = this.start + this.height;
   }
 
   onScroll() {
-    const scroll = FixedHeader.getScrollPosition();
+    const scroll = ScrollupHeader.getScrollPosition();
 
     if (!this.enabled || this.scroll === scroll) {
       return;
@@ -113,6 +113,6 @@ class FixedHeader extends Domodule {
   }
 }
 
-Domodule.register('FixedHeader', FixedHeader);
+Domodule.register('ScrollupHeader', ScrollupHeader);
 
-export default FixedHeader;
+export default ScrollupHeader;

@@ -1,8 +1,8 @@
 {
-  "name": "fixed-header",
+  "name": "scrollup-header",
   "version": "1.0.0",
   "description": "Fixed header for mobile devices. Shows up on scroll up",
-  "main": "dist/fixed-header.js",
+  "main": "dist/scrollup-header.js",
   "module": "index.js",
   "scripts": {
     "start": "scriptkit",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firstandthird/fixed-header.git"
+    "url": "git+https://github.com/firstandthird/scrollup-header.git"
   },
   "keywords": [
     "browser",
@@ -23,9 +23,9 @@
   "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firstandthird/fixed-header/issues"
+    "url": "https://github.com/firstandthird/scrollup-header/issues"
   },
-  "homepage": "https://github.com/firstandthird/fixed-header#readme",
+  "homepage": "https://github.com/firstandthird/scrollup-header#readme",
   "devDependencies": {
     "eslint-config-firstandthird": "3.2.0",
     "eslint-plugin-import": "2.2.0",
@@ -36,7 +36,7 @@
       "enabled": false
     },
     "files": {
-      "dist/fixed-header.js": "index.js"
+      "dist/scrollup-header.js": "index.js"
     },
     "scripts": {
       "babel": {
