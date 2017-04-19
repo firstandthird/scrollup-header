@@ -22,7 +22,14 @@ class ScrollupHeader extends Domodule {
     on(window, 'resize', bouncedSetup);
   }
 
-  setup() {
+  setup(event) {
+    const force = event && event.detail && event.detail.force;
+
+    // Avoid resizing on mobile devices on scroll
+    if (this.wWidth === window.innerWidth && !force) {
+      return;
+    }
+
     if (window.matchMedia && this.options.match &&
       !window.matchMedia(this.options.match).matches) {
       this.enabled = false;
@@ -46,6 +53,7 @@ class ScrollupHeader extends Domodule {
     this.height = this.el.offsetHeight;
     this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
     this.end = this.start + this.height;
+    this.wWidth = window.innerWidth;
   }
 
   onScroll() {
