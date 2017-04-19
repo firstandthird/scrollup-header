@@ -9,7 +9,7 @@ npm install fixed-header
 
 ## Usage
 
-Use the [CSS](example/offcanvas.css) that's shown on the example and customise to your needs. Keep `width` and `translate` similar.
+Use the [CSS](index/fixed-header.css) that's shown on the example and customise to your needs.
 
 ```html
 <body>
