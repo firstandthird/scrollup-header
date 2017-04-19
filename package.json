@@ -53,9 +53,9 @@
     }
   },
   "dependencies": {
-    "domassist": "1.8.0",
-    "domodule": "5.1.2",
-    "scroll-bus": "1.0.1",
+    "domassist": "^1.8.0",
+    "domodule": "^5.1.2",
+    "scroll-bus": "^1.0.1",
     "tinybounce": "0.0.1"
   }
 }

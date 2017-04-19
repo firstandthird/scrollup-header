@@ -1,31 +1,12 @@
 import Domodule from 'domodule';
 import ScrollBus from 'scroll-bus';
-import { on, addClass, removeClass } from 'domassist';
+import { on, addClass, removeClass, prefixedTransform } from 'domassist';
 import tinybounce from 'tinybounce';
 
 const CLASSES = {
   FIXED: 'fixed',
   TRANSITION: 'in-transition'
 };
-
-const transformProp = (function() {
-  const testEl = document.createElement('div');
-
-  if (testEl.style.transform === null) {
-    const vendors = ['Webkit', 'Moz', 'ms'];
-    let property = null;
-
-    for (let i = 0, len = vendors.length; i < len && !property; i++) {
-      const tProperty = `${vendors[i]}Transform`;
-      if (typeof testEl.style[tProperty] !== 'undefined') {
-        property = tProperty;
-      }
-    }
-  }
-
-  return 'transform';
-}());
-
 
 class FixedHeader extends Domodule {
   postInit() {
@@ -106,7 +87,7 @@ class FixedHeader extends Domodule {
   }
 
   transformUp() {
-    this.el.style[transformProp] = `translate3d(0, -${this.height}px, 0)`;
+    this.el.style[prefixedTransform()] = `translate3d(0, -${this.height}px, 0)`;
   }
 
   setFix(fixed) {
