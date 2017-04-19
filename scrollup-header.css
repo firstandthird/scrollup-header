@@ -1,0 +1,17 @@
+@media (max-width: 767px) {
+  .scrollup-header {
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .scrollup-header.in-transition {
+    transition: transform .3s cubic-bezier(.35, 0, .25, 1);
+  }
+
+  .scrollup-header.fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+}

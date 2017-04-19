@@ -4,16 +4,16 @@ Domodule Library to show a header on scroll up on mobile devices.
 ## Installation
 
 ```sh
-npm install fixed-header
+npm install scrollup-header
 ```
 
 ## Usage
 
-Use the [CSS](example/offcanvas.css) that's shown on the example and customise to your needs. Keep `width` and `translate` similar.
+Use the [CSS](index/scrollup-header.css) that's shown on the example and customise to your needs.
 
 ```html
 <body>
- <header class="fixed-header" data-module="FixedHeader" data-module-match="(max-width: 767px)">
+ <header class="scrollup-header" data-module="ScrollupHeader" data-module-match="(max-width: 767px)">
    <h1>My header</h1>
  </header>
 
