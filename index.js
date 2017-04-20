@@ -52,10 +52,27 @@ class ScrollupHeader extends Domodule {
   }
 
   calcBounds() {
+    let resetFix = false;
+
+    if (this.isFixed) {
+      resetFix = true;
+      this.setFix(false);
+    }
+
     this.height = this.el.offsetHeight;
     this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
     this.end = this.start + this.height;
     this.wWidth = window.innerWidth;
+
+    if (resetFix) {
+      this.setFix(true);
+
+      if (this.scrollUp) {
+        setTimeout(() => {
+          this.setScrollUp(true);
+        });
+      }
+    }
   }
 
   onScroll() {
