@@ -1,6 +1,6 @@
 {
   "name": "scrollup-header",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Fixed header for mobile devices. Shows up on scroll up",
   "main": "dist/scrollup-header.js",
   "module": "index.js",
