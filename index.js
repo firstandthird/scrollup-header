@@ -30,9 +30,12 @@ class ScrollupHeader extends Domodule {
       return;
     }
 
-    if (window.matchMedia && this.options.match &&
-      !window.matchMedia(this.options.match).matches) {
+    if (!this.options.match ||
+        (window.matchMedia && window.matchMedia(this.options.match).matches)) {
+      this.enabled = true;
+    } else {
       this.enabled = false;
+
       if (this.isFixed) {
         this.setFix(false);
       }
@@ -40,9 +43,8 @@ class ScrollupHeader extends Domodule {
       if (this.scrollUp) {
         this.setScrollUp(false);
       }
+
       this.scroll = -1;
-    } else {
-      this.enabled = true;
     }
 
     this.calcBounds();
@@ -95,7 +97,8 @@ class ScrollupHeader extends Domodule {
   }
 
   transformUp() {
-    this.el.style[prefixedTransform()] = `translate3d(0, -${this.height}px, 0)`;
+    // 5px to account for shadows
+    this.el.style[prefixedTransform()] = `translate3d(0, -${this.height + 5}px, 0)`;
   }
 
   setFix(fixed) {

@@ -1,18 +1,17 @@
-@media (max-width: 767px) {
-  .scrollup-header {
-    transform: translateZ(0);
-    width: 100%;
-    z-index: 1000;
-  }
+.scrollup-header {
+  transform: translateZ(0);
+  width: 100%;
+  z-index: 1000;
+}
 
-  .scrollup-header.in-transition {
-    transition: transform .3s cubic-bezier(.35, 0, .25, 1);
-  }
+.scrollup-header.in-transition {
+  transition: transform .3s cubic-bezier(.35, 0, .25, 1);
+}
 
-  .scrollup-header.fixed {
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-  }
+.scrollup-header.fixed {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
