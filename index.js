@@ -1,6 +1,6 @@
 import Domodule from 'domodule';
 import ScrollBus from 'scroll-bus';
-import { on, addClass, removeClass, prefixedTransform } from 'domassist';
+import { on, addClass, removeClass, prefixedTransform, hide, show } from 'domassist';
 import tinybounce from 'tinybounce';
 
 const CLASSES = {
@@ -15,6 +15,9 @@ class ScrollupHeader extends Domodule {
     this.scroll = 0;
     this.scrollUp = false;
     this.isFixed = false;
+    this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+                !window.MSStream;
+    this.wWidth = window.innerWidth;
 
     ScrollBus.on(this.onScroll.bind(this));
     this.setup();
@@ -59,26 +62,28 @@ class ScrollupHeader extends Domodule {
       this.setFix(false);
     }
 
-    this.height = this.el.offsetHeight;
-    this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
-    this.end = this.start + this.height;
-    this.wWidth = window.innerWidth;
+    setTimeout(() => {
+      this.height = this.el.offsetHeight;
+      this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
+      this.end = this.start + this.height;
+      this.wWidth = window.innerWidth;
 
-    if (resetFix) {
-      this.setFix(true);
+      if (resetFix) {
+        this.setFix(true);
 
-      if (this.scrollUp) {
-        setTimeout(() => {
-          this.setScrollUp(true);
-        });
+        if (this.scrollUp) {
+          setTimeout(() => {
+            this.setScrollUp(true);
+          });
+        }
       }
-    }
+    });
   }
 
   onScroll() {
     const scroll = ScrollupHeader.getScrollPosition();
 
-    if (!this.enabled || this.scroll === scroll) {
+    if (!this.enabled || this.scroll === scroll || scroll < 0) {
       return;
     }
 
@@ -131,9 +136,18 @@ class ScrollupHeader extends Domodule {
     }
 
     method(this.el, CLASSES.FIXED);
+
     setTimeout(() => {
       method(this.el, CLASSES.TRANSITION);
-    });
+
+      if (!fixed && this.isIOS) {
+        hide(this.el);
+
+        setTimeout(() => {
+          show(this.el);
+        });
+      }
+    }, 150);
   }
 
   static getScrollPosition() {
