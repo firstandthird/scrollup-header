@@ -23,6 +23,14 @@ class ScrollupHeader extends Domodule {
     this.setup();
     const bouncedSetup = tinybounce(this.setup.bind(this), 150);
     on(window, 'resize', bouncedSetup);
+
+    on(this.el, 'scrollup:pause', () => {
+      this.enabled = false;
+    });
+
+    on(this.el, 'scrollup:resume', () => {
+      this.enabled = true;
+    });
   }
 
   setup(event) {
