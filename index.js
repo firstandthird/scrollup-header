@@ -71,7 +71,10 @@ class ScrollupHeader extends Domodule {
     }
 
     setTimeout(() => {
+      const cs = window.getComputedStyle(this.el);
+
       this.height = this.el.offsetHeight;
+      this.margin = parseInt(cs.getPropertyValue('margin-bottom'), 10) || 0;
       this.start = this.el.getBoundingClientRect().top + ScrollupHeader.getScrollPosition();
       this.end = this.start + this.height;
       this.wWidth = window.innerWidth;
@@ -137,7 +140,7 @@ class ScrollupHeader extends Domodule {
 
     if (fixed) {
       this.transformUp();
-      this.parent.style.paddingTop = `${this.height}px`;
+      this.parent.style.paddingTop = `${this.height + this.margin}px`;
     } else {
       this.el.removeAttribute('style');
       this.parent.removeAttribute('style');
