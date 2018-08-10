@@ -17,7 +17,7 @@ class ScrollupHeader extends Domodule {
     this.isFixed = false;
     this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) &&
                 !window.MSStream;
-    this.wWidth = window.innerWidth;
+    this.wWidth = null; // Ensuring setup runs once
 
     ScrollBus.on(this.onScroll.bind(this));
     this.setup();
