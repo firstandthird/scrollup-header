@@ -9,6 +9,12 @@ const CLASSES = {
 };
 
 class ScrollupHeader extends Domodule {
+  get defaults() {
+    return {
+      addPadding: true
+    };
+  }
+
   postInit() {
     this.parent = this.el.parentElement;
     this.enabled = true;
@@ -137,13 +143,20 @@ class ScrollupHeader extends Domodule {
   setFix(fixed) {
     this.isFixed = fixed;
     const method = fixed ? addClass : removeClass;
+    const addPadding = this.options.addPadding !== 'false';
 
     if (fixed) {
       this.transformUp();
-      this.parent.style.paddingTop = `${this.height + this.margin}px`;
+
+      if (addPadding) {
+        this.parent.style.paddingTop = `${this.height + this.margin}px`;
+      }
     } else {
       this.el.removeAttribute('style');
-      this.parent.removeAttribute('style');
+
+      if (addPadding) {
+        this.parent.style.paddingTop = '';
+      }
     }
 
     method(this.el, CLASSES.FIXED);
