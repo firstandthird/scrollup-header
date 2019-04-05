@@ -1,10 +1,13 @@
-# Fixed Header
-Domodule Library to show a header on scroll up on mobile devices.
+# ScrollUp Header
+
+<span class="scrollup-header-npmversion"><a href="https://npmjs.org/package/scrollup-header" title="View this project on NPM"><img src="https://img.shields.io/npm/v/scrollup-header.svg" alt="NPM version" /></a></span>
+
+[Domodule](https://github.com/firstandthird/domodule) Library to show a header on scroll up on mobile devices.
 
 ## Installation
 
 ```sh
-npm install scrollup-header
+npm i scrollup-header
 ```
 
 ## Usage

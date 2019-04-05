@@ -2,8 +2,8 @@
   "name": "scrollup-header",
   "version": "1.4.0",
   "description": "Fixed header for mobile devices. Shows up on scroll up",
-  "main": "dist/scrollup-header.js",
-  "module": "index.js",
+  "main": "index.js",
+  "module": "dist/scrollup-header.esm.js",
   "scripts": {
     "start": "scriptkit",
     "build": "scriptkit build",
@@ -28,8 +28,8 @@
   "homepage": "https://github.com/firstandthird/scrollup-header#readme",
   "devDependencies": {
     "eslint-config-firstandthird": "4.3.0",
-    "eslint-plugin-import": "2.14.0",
-    "scriptkit": "0.4.0"
+    "eslint-plugin-import": "2.16.0",
+    "scriptkit": "2.0.2"
   },
   "scriptkit": {
     "test": {
@@ -53,9 +53,9 @@
     }
   },
   "dependencies": {
-    "domassist": "^1.11.1",
-    "domodule": "^5.2.0",
-    "scroll-bus": "^1.0.2",
-    "tinybounce": "0.0.1"
+    "domassist": "^2.0.2",
+    "domodule": "^6.0.0",
+    "scroll-bus": "^2.0.0",
+    "tinybounce": "^1.0.1"
   }
 }
