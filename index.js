@@ -47,21 +47,20 @@ class ScrollupHeader extends Domodule {
       return;
     }
 
-    if (!this.options.match ||
-        (window.matchMedia && window.matchMedia(this.options.match).matches)) {
-      this.enabled = true;
-    } else {
-      this.enabled = false;
+    if (this.options.match) {
+      this.enabled = (window.matchMedia && window.matchMedia(this.options.match).matches);
 
-      if (this.isFixed) {
-        this.setFix(false);
+      if (!this.enabled) {
+        if (this.isFixed) {
+          this.setFix(false);
+        }
+
+        if (this.scrollUp) {
+          this.setScrollUp(false);
+        }
+
+        this.scroll = -1;
       }
-
-      if (this.scrollUp) {
-        this.setScrollUp(false);
-      }
-
-      this.scroll = -1;
     }
 
     this.calcBounds();
