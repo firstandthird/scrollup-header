@@ -5,7 +5,9 @@ import tinybounce from 'tinybounce';
 
 const CLASSES = {
   FIXED: 'fixed',
-  TRANSITION: 'in-transition'
+  TRANSITION: 'in-transition',
+  SCROLLING_UP: 'scrollin-up',
+  SCROLLING_DOWN: 'scrollin-down'
 };
 
 class ScrollupHeader extends Domodule {
@@ -128,8 +130,12 @@ class ScrollupHeader extends Domodule {
 
       if (isScrollingUp) {
         this.el.removeAttribute('style');
+        removeClass(this.el, CLASSES.SCROLLING_DOWN);
+        addClass(this.el, CLASSES.SCROLLING_UP);
       } else {
         this.transformUp();
+        removeClass(this.el, CLASSES.SCROLLING_UP);
+        addClass(this.el, CLASSES.SCROLLING_DOWN);
       }
     }
   }
@@ -152,6 +158,9 @@ class ScrollupHeader extends Domodule {
       }
     } else {
       this.el.removeAttribute('style');
+
+      removeClass(this.el, CLASSES.SCROLLING_UP);
+      removeClass(this.el, CLASSES.SCROLLING_DOWN);
 
       if (addPadding) {
         this.parent.style.paddingTop = '';
