@@ -6,8 +6,8 @@ import tinybounce from 'tinybounce';
 const CLASSES = {
   FIXED: 'fixed',
   TRANSITION: 'in-transition',
-  SCROLLING_UP: 'scrollin-up',
-  SCROLLING_DOWN: 'scrollin-down'
+  SCROLLING_UP: 'scrolling-up',
+  SCROLLING_DOWN: 'scrolling-down'
 };
 
 class ScrollupHeader extends Domodule {
